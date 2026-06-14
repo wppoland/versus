@@ -3,7 +3,7 @@
  * Plugin Name:       Versus - Product Compare for WooCommerce
  * Plugin URI:        https://plogins.com/versus/
  * Description:        Fast, accessible product comparison for WooCommerce - compare table with difference highlighting, guest + customer lists, no jQuery
- * Version:           0.1.0
+ * Version:           0.2.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -12,6 +12,7 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       versus
+ * Domain Path:       /languages
  * WC requires at least: 8.0
  *
  * @package Versus
@@ -23,7 +24,7 @@ namespace Versus;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.0';
+const VERSION     = '0.2.0';
 const PLUGIN_FILE = __FILE__;
 
 define('VERSUS_DIR', plugin_dir_path(__FILE__));
@@ -37,6 +38,13 @@ add_action('before_woocommerce_init', static function (): void {
         \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
         \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('cart_checkout_blocks', __FILE__, true);
     }
+});
+
+// Load translations from /languages on init (translators may ship local .mo
+// files; wp.org language packs load automatically). Hooked on init per the
+// WordPress 6.7 just-in-time loading guidance.
+add_action('init', static function (): void {
+    load_plugin_textdomain('versus', false, dirname(plugin_basename(__FILE__)) . '/languages');
 });
 
 add_action('plugins_loaded', static function (): void {
