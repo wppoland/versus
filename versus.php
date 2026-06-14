@@ -57,6 +57,7 @@ add_action('plugins_loaded', static function (): void {
         return;
     }
 
+    // Plugin::boot() fires the `versus/booted` action once it has registered its
+    // services, so PRO companions can hook there reliably.
     Plugin::instance()->boot();
-    do_action('versus/booted', Plugin::instance());
 });

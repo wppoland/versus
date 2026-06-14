@@ -5,6 +5,7 @@ parameters:
     level: 6
     paths:
         - versus.php
+        - uninstall.php
         - src
         - config
     excludePaths:

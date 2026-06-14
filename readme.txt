@@ -4,7 +4,7 @@ Tags: woocommerce, compare, product comparison, comparison table, accessibility
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,11 @@ A WooCommerce-capability settings page (Versus menu) lets you:
 * Choose where the compare button appears (loops, single product) and whether guests can use it.
 * Choose which standard fields appear as rows (price, SKU, availability, short description) and whether to include product attributes.
 * Toggle difference highlighting, the "differences only" default, and the image / add-to-cart / remove controls in each column header.
+* Customise the front-end strings — the compare button, remove button, compare link, differences toggle, clear-all button and empty-list message — or leave them on their translated defaults.
+
+= Translation ready =
+
+All strings are translatable through the `versus` text domain, and a `versus.pot` template ships in `/languages`. Deleting the plugin removes its options and the comparison table.
 
 = Engine =
 
@@ -66,6 +71,11 @@ On shop and archive loops and on the single product page, depending on your sett
 2. The Versus settings screen.
 
 == Changelog ==
+
+= 0.2.0 =
+* Added a "Labels & text" section to the settings screen so the compare button, remove button, compare link, differences toggle, clear-all button and empty-list message can be customised (empty falls back to the translated default).
+* Made the plugin fully translation ready: `Domain Path` header, text-domain loading on `init`, and a `versus.pot` template in `/languages`.
+* Added `uninstall.php` cleanup that removes the plugin options and the comparison-items table when the plugin is deleted.
 
 = 0.1.0 =
 * Initial release: accessible product comparison for WooCommerce with a difference-highlighting table, guest + customer lists, and a settings page for compared fields and placement.

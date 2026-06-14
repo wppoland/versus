@@ -26,10 +26,15 @@ $only_diff     = (bool) ($settings['show_only_differences'] ?? false);
 $show_image    = (bool) ($settings['show_product_image'] ?? true);
 $show_cart     = (bool) ($settings['show_add_to_cart'] ?? true);
 $show_remove   = (bool) ($settings['show_remove_button'] ?? true);
-$remove_label  = (string) ($settings['button_remove_text'] ?? __('Remove', 'versus'));
-$clear_text    = (string) ($settings['clear_text'] ?? __('Clear all', 'versus'));
-$empty_text    = (string) ($settings['empty_text'] ?? __('No products added to compare yet.', 'versus'));
-$toggle_text   = (string) ($settings['differences_toggle_text'] ?? __('Show only differences', 'versus'));
+$remove_label  = (string) ($settings['button_remove_text'] ?? '');
+$clear_text    = (string) ($settings['clear_text'] ?? '');
+$empty_text    = (string) ($settings['empty_text'] ?? '');
+$toggle_text   = (string) ($settings['differences_toggle_text'] ?? '');
+
+$remove_label  = '' !== $remove_label ? $remove_label : __('Remove', 'versus');
+$clear_text    = '' !== $clear_text ? $clear_text : __('Clear all', 'versus');
+$empty_text    = '' !== $empty_text ? $empty_text : __('No products added to compare yet.', 'versus');
+$toggle_text   = '' !== $toggle_text ? $toggle_text : __('Show only differences', 'versus');
 ?>
 <div class="versus-compare-account">
     <div class="versus-compare-account__header">

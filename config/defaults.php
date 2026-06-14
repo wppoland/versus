@@ -45,17 +45,19 @@ return [
         'description'  => true,
     ],
 
-    // Runtime strings (front-end + AJAX). Empty falls back to engine labels.
-    'button_add_text'        => 'Compare',
-    'button_remove_text'     => 'Remove',
-    'compare_link_text'      => 'View comparison',
-    'feature_label'          => 'Feature',
-    'account_label'          => 'Compare',
-    'clear_text'             => 'Clear all',
-    'empty_text'             => 'No products added to compare yet.',
-    'differences_toggle_text' => 'Show only differences',
-    'login_required_text'    => 'Please log in to compare products.',
-    'product_not_found_text' => 'Product not found.',
-    'clear_error_text'       => 'Could not clear the comparison.',
-    'limit_notice_text'      => 'You can compare up to {limit} products. The oldest item was removed.',
+    // Runtime strings (front-end + AJAX). Stored empty by default so the
+    // translated fallbacks in the engine labels / templates apply; a merchant
+    // can override any of these from the Versus settings screen.
+    'button_add_text'         => '',
+    'button_remove_text'      => '',
+    'compare_link_text'       => '',
+    'feature_label'           => '',
+    'account_label'           => '',
+    'clear_text'              => '',
+    'empty_text'              => '',
+    'differences_toggle_text' => '',
+    'login_required_text'     => '',
+    'product_not_found_text'  => '',
+    'clear_error_text'        => '',
+    'limit_notice_text'       => '',
 ];

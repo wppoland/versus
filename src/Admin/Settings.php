@@ -24,6 +24,21 @@ final class Settings implements HasHooks
     /** @var list<string> */
     private const FIELD_KEYS = ['price', 'sku', 'availability', 'description'];
 
+    /**
+     * Editable front-end label keys. Each is a plain-text string stored in the
+     * settings option and consumed by the compare engine / templates.
+     *
+     * @var list<string>
+     */
+    private const LABEL_KEYS = [
+        'button_add_text',
+        'button_remove_text',
+        'compare_link_text',
+        'differences_toggle_text',
+        'clear_text',
+        'empty_text',
+    ];
+
     public function registerHooks(): void
     {
         add_action('admin_menu', [$this, 'addMenuPage']);
@@ -146,6 +161,23 @@ final class Settings implements HasHooks
                     </tbody>
                 </table>
 
+                <h2><?php esc_html_e('Labels &amp; text', 'versus'); ?></h2>
+                <p class="description">
+                    <?php esc_html_e('Customise the front-end strings. Leave a field empty to use the default translation.', 'versus'); ?>
+                </p>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                        <?php
+                        $this->textRow('button_add_text', __('"Compare" button', 'versus'), __('Compare', 'versus'), $settings);
+                        $this->textRow('button_remove_text', __('"Remove" button', 'versus'), __('Remove', 'versus'), $settings);
+                        $this->textRow('compare_link_text', __('Compare link', 'versus'), __('View comparison', 'versus'), $settings);
+                        $this->textRow('differences_toggle_text', __('Differences toggle', 'versus'), __('Show only differences', 'versus'), $settings);
+                        $this->textRow('clear_text', __('Clear-all button', 'versus'), __('Clear all', 'versus'), $settings);
+                        $this->textRow('empty_text', __('Empty comparison message', 'versus'), __('No products added to compare yet.', 'versus'), $settings);
+                        ?>
+                    </tbody>
+                </table>
+
                 <?php submit_button(); ?>
             </form>
         </div>
@@ -210,6 +242,34 @@ final class Settings implements HasHooks
     }
 
     /**
+     * Render a single text-input row for an editable front-end label.
+     *
+     * @param array<string, mixed> $settings
+     */
+    private function textRow(string $key, string $label, string $placeholder, array $settings): void
+    {
+        $id    = 'versus_' . $key;
+        $value = isset($settings[$key]) && is_string($settings[$key]) ? $settings[$key] : '';
+        ?>
+        <tr>
+            <th scope="row">
+                <label for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
+            </th>
+            <td>
+                <input
+                    type="text"
+                    id="<?php echo esc_attr($id); ?>"
+                    name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]"
+                    value="<?php echo esc_attr($value); ?>"
+                    placeholder="<?php echo esc_attr($placeholder); ?>"
+                    class="regular-text"
+                />
+            </td>
+        </tr>
+        <?php
+    }
+
+    /**
      * Sanitises the submitted settings before save, preserving defaults for any
      * field not on the form.
      *
@@ -234,7 +294,22 @@ final class Settings implements HasHooks
             $fields[$key] = ! empty($rawFields[$key]);
         }
 
-        return array_merge($defaults, [
+        $labels = [];
+
+        foreach (self::LABEL_KEYS as $key) {
+            $value = isset($raw[$key]) && is_string($raw[$key])
+                ? sanitize_text_field(wp_unslash($raw[$key]))
+                : '';
+
+            // Empty falls back to the packaged default (and its translation).
+            if ($value !== '') {
+                $labels[$key] = $value;
+            } elseif (isset($defaults[$key]) && is_string($defaults[$key])) {
+                $labels[$key] = $defaults[$key];
+            }
+        }
+
+        return array_merge($defaults, $labels, [
             'enabled'               => ! empty($raw['enabled']),
             'max_items'             => $maxItems,
             'show_on_loop'          => ! empty($raw['show_on_loop']),
