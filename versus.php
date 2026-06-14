@@ -54,7 +54,12 @@ add_action('plugins_loaded', static function (): void {
         return;
     }
 
-    // Plugin::boot() fires the `versus/booted` action once it has registered its
-    // services, so PRO companions can hook there reliably.
-    Plugin::instance()->boot();
+    // Boot on init:0 (not synchronously in plugins_loaded) so services that call
+    // __()/translation functions don't run before the `init` hook — loading a text
+    // domain earlier triggers WordPress 6.7+'s _load_textdomain_just_in_time
+    // notice. Plugin::boot() fires the `versus/booted` action once it has
+    // registered its services, so PRO companions can hook there reliably.
+    add_action('init', static function (): void {
+        Plugin::instance()->boot();
+    }, 0);
 });
