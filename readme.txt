@@ -74,7 +74,7 @@ On shop and archive loops and on the single product page, depending on your sett
 
 = 0.2.0 =
 * Added a "Labels & text" section to the settings screen so the compare button, remove button, compare link, differences toggle, clear-all button and empty-list message can be customised (empty falls back to the translated default).
-* Made the plugin fully translation ready: `Domain Path` header, text-domain loading on `init`, and a `versus.pot` template in `/languages`.
+* Made the plugin fully translation ready: `Domain Path` header and a `versus.pot` template in `/languages` (WordPress loads the translations automatically).
 * Added `uninstall.php` cleanup that removes the plugin options and the comparison-items table when the plugin is deleted.
 
 = 0.1.0 =

@@ -40,13 +40,10 @@ add_action('before_woocommerce_init', static function (): void {
     }
 });
 
-// Load translations from /languages on init (translators may ship local .mo
-// files; wp.org language packs load automatically). Hooked on init per the
-// WordPress 6.7 just-in-time loading guidance.
-add_action('init', static function (): void {
-    load_plugin_textdomain('versus', false, dirname(plugin_basename(__FILE__)) . '/languages');
-});
-
+// Translations: no manual load_plugin_textdomain() call. WordPress 4.6+ loads
+// translations for wp.org-hosted plugins automatically (just-in-time) from the
+// plugin slug, and the bundled languages/versus.pot lets translators get
+// started. The `Domain Path: /languages` header points WP at the local files.
 add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
