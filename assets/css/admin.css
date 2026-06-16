@@ -7,7 +7,11 @@
  */
 
 .versus-settings {
-    --versus-admin-accent: #2271b1;
+    /* Family accent: same decisive violet as the storefront compare UI.
+     * Contrast vs the wp-admin surface — #6d28d9 on #fff = 7.10:1, on #f0f0f1
+     * = 6.24:1 — clears WCAG AA for text (4.5:1) and UI (3:1). */
+    --versus-admin-accent: #6d28d9;
+    --versus-admin-accent-ring: rgba(109, 40, 217, .35);
     --versus-admin-surface: #fff;
     --versus-admin-border: #c3c4c7;
     --versus-admin-muted: #646970;
@@ -69,7 +73,7 @@
 .versus-help__toggle:focus-visible {
     color: var(--versus-admin-accent);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(34, 113, 177, .3);
+    box-shadow: 0 0 0 2px var(--versus-admin-accent-ring);
 }
 
 .versus-help__tip {
@@ -129,6 +133,10 @@
 
 @media (prefers-color-scheme: dark) {
     .versus-settings {
+        /* Lighter family violet for dark surfaces (matches the storefront's
+         * dark-mode accent). #a78bfa on #2c3338 = 4.71:1 — clears AA. */
+        --versus-admin-accent: #a78bfa;
+        --versus-admin-accent-ring: rgba(167, 139, 250, .4);
         --versus-admin-surface: #2c3338;
         --versus-admin-border: #4a5057;
         --versus-admin-muted: #a7aaad;
