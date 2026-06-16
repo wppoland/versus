@@ -12,7 +12,9 @@ Fast, accessible product comparison for WooCommerce: side-by-side table, differe
 
 == Description ==
 
-Versus adds a "Compare" button to your WooCommerce shop, archive and single product pages. Shoppers build a list of products and view them side by side in a clean comparison table — without leaving your store.
+Versus adds a "Compare" button to your WooCommerce shop, archive and single product pages. Shoppers build a list of products and view them side by side in a comparison table, without leaving your store.
+
+Versus is developed in the open. The code, and a place to report bugs or request features, live at https://github.com/wppoland/versus.
 
 The table shows the product image, name, price, SKU, availability and short description, plus a row for every product attribute (colour, size, material and more). Rows whose values differ between products are highlighted, and a single toggle hides everything that is identical so the real differences stand out.
 
@@ -37,9 +39,9 @@ A WooCommerce-capability settings page (Versus menu) lets you:
 
 All strings are translatable through the `versus` text domain, and a `versus.pot` template ships in `/languages`. Deleting the plugin removes its options and the comparison table.
 
-= Built to be lightweight =
+= How it works =
 
-Versus does the heavy lifting itself: a nonce-verified AJAX endpoint, per-browser guest storage, and an efficient difference calculation, with assets enqueued only when the compare button or table is on screen.
+Adding or removing a product is a single nonce-verified AJAX request; no full page reload. Guest selections are kept in a per-browser cookie for six months and merged into the account on login. The CSS and JavaScript are enqueued only on pages that actually show the compare button or the table.
 
 == Installation ==
 
