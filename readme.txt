@@ -1,6 +1,6 @@
 === Versus - Product Compare for WooCommerce ===
 Contributors: wppoland
-Tags: woocommerce, compare, product comparison, comparison table, accessibility
+Tags: woocommerce, product compare, compare products, product comparison, comparison table
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
@@ -8,11 +8,11 @@ Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Fast, accessible product comparison for WooCommerce: side-by-side table, difference highlighting, guest and customer lists, no jQuery.
+Fast product compare for WooCommerce: side-by-side comparison table, difference highlighting, guest and customer lists. No jQuery.
 
 == Description ==
 
-Versus adds a "Compare" button to your WooCommerce shop, archive and single product pages. Shoppers build a list of products and view them side by side in a comparison table, without leaving your store.
+Versus adds a "Compare" button to your WooCommerce shop, archive and single product pages. Shoppers compare products side by side in a WooCommerce comparison table, with product data kept inside your store.
 
 Versus is developed in the open. The code, and a place to report bugs or request features, live at https://github.com/wppoland/versus.
 
@@ -66,6 +66,18 @@ Yes, when "Allow guests" is enabled. A guest's comparison is stored per browser 
 = Where does the compare button appear? =
 
 On shop and archive loops and on the single product page, depending on your settings. The comparison itself opens on the My Account "Compare" tab for customers, or a dedicated compare URL for guests.
+
+= What fields appear in the comparison table? =
+
+The table can show product image, name, price, SKU, availability, short description and product attributes such as size, colour or material.
+
+= Can shoppers hide identical rows? =
+
+Yes. Difference highlighting and a "differences only" toggle help shoppers focus on what actually changes between compared products.
+
+= Does the product compare list work for logged-in customers? =
+
+Yes. Logged-in customers get a My Account Compare tab. Guest compare lists can be merged into the account after login.
 
 == Screenshots ==
 
