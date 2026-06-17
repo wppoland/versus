@@ -84,6 +84,12 @@ Yes. Logged-in customers get a My Account Compare tab. Guest compare lists can b
 1. The side-by-side comparison table with difference highlighting.
 2. The Versus settings screen.
 
+== External Services ==
+
+Versus does not connect to, or send any data to, any external service or third-party server. It bundles no SDK, API client, web font, map tile, CDN asset or analytics call — everything runs on your own site.
+
+Comparison data stays inside your WordPress database: a custom `{prefix}versus_compare_items` table holds the compared product IDs, the plugin settings live in the `versus_settings` option (with `versus_db_version` tracking the schema), and a guest's selection is kept in a first-party cookie in their own browser. Adding or removing a product is a same-origin AJAX request to your site's own `admin-ajax.php`; no outbound HTTP request is ever made. Deleting the plugin removes those options and drops the table.
+
 == Changelog ==
 
 = 0.2.0 =
