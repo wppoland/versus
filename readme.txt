@@ -18,6 +18,15 @@ Versus is developed in the open. The code, and a place to report bugs or request
 
 The table shows the product image, name, price, SKU, availability and short description, plus a row for every product attribute (colour, size, material and more). Rows whose values differ between products are highlighted, and a single toggle hides everything that is identical so the real differences stand out.
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/versus/docs/
+* **Plugin page** - https://plogins.com/versus/
+* **Source code** - https://github.com/wppoland/versus
+* **Bug reports and feature requests** - https://github.com/wppoland/versus/issues
+* **Discussions and questions** - https://github.com/wppoland/versus/discussions
+
+
 = Built for speed and accessibility =
 
 * **No jQuery** in the plugin's own front-end code — the script is vanilla JS, deferred and loaded in the footer.
