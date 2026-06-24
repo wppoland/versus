@@ -3,15 +3,8 @@
     "description": "Fast, accessible product comparison for WooCommerce - compare table with difference highlighting, guest + customer lists, no jQuery",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/wppoland/storefront-kit"
-        }
-    ],
     "require": {
-        "php": ">=8.1",
-        "wppoland/storefront-kit": "^1.5"
+        "php": ">=8.1"
     },
     "require-dev": {
         "wp-coding-standards/wpcs": "^3.0",
@@ -22,7 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Versus\\": "src/"
+            "Versus\\": "src/",
+            "WPPoland\\StorefrontKit\\": "lib/storefront-kit/"
         }
     },
     "scripts": {

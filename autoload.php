@@ -22,7 +22,7 @@ if (is_readable($versus_composer)) {
 spl_autoload_register(static function (string $class): void {
     $prefixes = [
         'Versus\\'           => __DIR__ . '/src/',
-        'WPPoland\\StorefrontKit\\'    => __DIR__ . '/vendor/wppoland/storefront-kit/src/',
+        'WPPoland\\StorefrontKit\\'    => __DIR__ . '/lib/storefront-kit/',
     ];
 
     foreach ($prefixes as $prefix => $baseDir) {
