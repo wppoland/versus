@@ -29,7 +29,7 @@ The table shows the product image, name, price, SKU, availability and short desc
 
 = Built for speed and accessibility =
 
-* **No jQuery** in the plugin's own front-end code — the script is vanilla JS, deferred and loaded in the footer.
+* **No jQuery** in the plugin's own front-end code, the script is vanilla JS, deferred and loaded in the footer.
 * **No layout shift (CLS).** The comparison table scrolls horizontally inside its own wrapper, so adding columns never reflows the page.
 * **Keyboard friendly.** The compare buttons are real buttons with `aria-pressed` state that updates over AJAX.
 * **Guests and customers.** Logged-out visitors build a comparison stored per browser; logged-in customers get a "Compare" tab in My Account, and a guest list is merged into the account on login.
@@ -42,7 +42,7 @@ A WooCommerce-capability settings page (Versus menu) lets you:
 * Choose where the compare button appears (loops, single product) and whether guests can use it.
 * Choose which standard fields appear as rows (price, SKU, availability, short description) and whether to include product attributes.
 * Toggle difference highlighting, the "differences only" default, and the image / add-to-cart / remove controls in each column header.
-* Customise the front-end strings — the compare button, remove button, compare link, differences toggle, clear-all button and empty-list message — or leave them on their translated defaults.
+* Customise the front-end strings, the compare button, remove button, compare link, differences toggle, clear-all button and empty-list message, or leave them on their translated defaults.
 
 = Translation ready =
 
@@ -95,7 +95,7 @@ Yes. Logged-in customers get a My Account Compare tab. Guest compare lists can b
 
 == External Services ==
 
-Versus does not connect to, or send any data to, any external service or third-party server. It bundles no SDK, API client, web font, map tile, CDN asset or analytics call — everything runs on your own site.
+Versus does not connect to, or send any data to, any external service or third-party server. It bundles no SDK, API client, web font, map tile, CDN asset or analytics call, everything runs on your own site.
 
 Comparison data stays inside your WordPress database: a custom `{prefix}versus_compare_items` table holds the compared product IDs, the plugin settings live in the `versus_settings` option (with `versus_db_version` tracking the schema), and a guest's selection is kept in a first-party cookie in their own browser. Adding or removing a product is a same-origin AJAX request to your site's own `admin-ajax.php`; no outbound HTTP request is ever made. Deleting the plugin removes those options and drops the table.
 
