@@ -31,14 +31,14 @@ $clear_text    = (string) ($settings['clear_text'] ?? '');
 $empty_text    = (string) ($settings['empty_text'] ?? '');
 $toggle_text   = (string) ($settings['differences_toggle_text'] ?? '');
 
-$remove_label  = '' !== $remove_label ? $remove_label : __('Remove', 'versus');
-$clear_text    = '' !== $clear_text ? $clear_text : __('Clear all', 'versus');
-$empty_text    = '' !== $empty_text ? $empty_text : __('No products added to compare yet.', 'versus');
-$toggle_text   = '' !== $toggle_text ? $toggle_text : __('Show only differences', 'versus');
+$remove_label  = '' !== $remove_label ? $remove_label : __('Remove', 'plogins-versus');
+$clear_text    = '' !== $clear_text ? $clear_text : __('Clear all', 'plogins-versus');
+$empty_text    = '' !== $empty_text ? $empty_text : __('No products added to compare yet.', 'plogins-versus');
+$toggle_text   = '' !== $toggle_text ? $toggle_text : __('Show only differences', 'plogins-versus');
 ?>
 <div class="versus-compare-account">
     <div class="versus-compare-account__header">
-        <h2><?php echo esc_html($feature_label !== '' ? $feature_label : __('Compare products', 'versus')); ?></h2>
+        <h2><?php echo esc_html($feature_label !== '' ? $feature_label : __('Compare products', 'plogins-versus')); ?></h2>
 
         <?php if ($products !== []) : ?>
             <div class="versus-compare-actions">
@@ -68,7 +68,7 @@ $toggle_text   = '' !== $toggle_text ? $toggle_text : __('Show only differences'
             if (is_string($shop_url) && '' !== $shop_url) :
                 ?>
                 <a class="button" href="<?php echo esc_url($shop_url); ?>">
-                    <?php esc_html_e('Browse products', 'versus'); ?>
+                    <?php esc_html_e('Browse products', 'plogins-versus'); ?>
                 </a>
             <?php endif; ?>
         </div>
@@ -77,7 +77,7 @@ $toggle_text   = '' !== $toggle_text ? $toggle_text : __('Show only differences'
             <table class="shop_table shop_table_responsive versus-compare-table">
                 <thead>
                     <tr>
-                        <th><?php echo esc_html($feature_label !== '' ? $feature_label : __('Feature', 'versus')); ?></th>
+                        <th><?php echo esc_html($feature_label !== '' ? $feature_label : __('Feature', 'plogins-versus')); ?></th>
                         <?php foreach ($products as $product) : ?>
                             <th class="versus-compare-product">
                                 <a href="<?php echo esc_url(get_permalink($product->get_id()) ?: ''); ?>">

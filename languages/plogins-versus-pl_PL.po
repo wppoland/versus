@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-14T14:34:25+00:00\n"
 "PO-Revision-Date: 2026-06-15 00:00+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: versus\n"
+"X-Domain: plogins-versus\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
 #. Plugin Name of the plugin

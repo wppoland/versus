@@ -1,10 +1,10 @@
-=== Versus - Product Compare for WooCommerce ===
+=== Plogins Versus for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product compare, compare products, product comparison, comparison table
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,17 +14,16 @@ Fast product compare for WooCommerce: side-by-side comparison table, difference 
 
 Versus adds a "Compare" button to your WooCommerce shop, archive and single product pages. Shoppers compare products side by side in a WooCommerce comparison table, with product data kept inside your store.
 
-Versus is developed in the open. The code, and a place to report bugs or request features, live at https://github.com/wppoland/versus.
+Versus is developed in the open. The code, and a place to report bugs or request features, live at https://github.com/wppoland/plogins-versus.
 
 The table shows the product image, name, price, SKU, availability and short description, plus a row for every product attribute (colour, size, material and more). Rows whose values differ between products are highlighted, and a single toggle hides everything that is identical so the real differences stand out.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/versus/docs/
-* **Plugin page** - https://plogins.com/versus/
-* **Source code** - https://github.com/wppoland/versus
-* **Bug reports and feature requests** - https://github.com/wppoland/versus/issues
-* **Discussions and questions** - https://github.com/wppoland/versus/discussions
+* **Documentation** - https://plogins.com/plogins-versus/docs/
+* **Plugin page** - https://plogins.com/plogins-versus/
+* **Source code** - https://github.com/wppoland/plogins-versus
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-versus/issues
 
 
 = Built for speed and accessibility =
@@ -100,6 +99,9 @@ Versus does not connect to, or send any data to, any external service or third-p
 Comparison data stays inside your WordPress database: a custom `{prefix}versus_compare_items` table holds the compared product IDs, the plugin settings live in the `versus_settings` option (with `versus_db_version` tracking the schema), and a guest's selection is kept in a first-party cookie in their own browser. Adding or removing a product is a same-origin AJAX request to your site's own `admin-ajax.php`; no outbound HTTP request is ever made. Deleting the plugin removes those options and drops the table.
 
 == Changelog ==
+
+= 0.2.1 =
+* Renamed to Plogins Versus for WooCommerce for a more distinctive plugin name.
 
 = 0.2.0 =
 * Polished every interface: inline help tooltips on every setting, a modern themeable comparison table (CSS custom properties, fluid sizing, dark-mode and reduced-motion support), a friendly empty-state on the comparison page, and a live count badge on the compare link.

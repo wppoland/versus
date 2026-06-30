@@ -80,8 +80,8 @@ final class Settings implements HasHooks
     public function addMenuPage(): void
     {
         add_menu_page(
-            __('Versus Settings', 'versus'),
-            __('Versus', 'versus'),
+            __('Versus Settings', 'plogins-versus'),
+            __('Versus', 'plogins-versus'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -124,7 +124,7 @@ final class Settings implements HasHooks
             <p class="versus-settings__intro">
                 <?php
                 echo wp_kses(
-                    __('<strong>Versus</strong> lets shoppers line products up side by side and pick with confidence. Turn the comparison on, choose where the <em>Compare</em> button appears, and decide which details fill the comparison table. Hover or focus the <span aria-hidden="true">?</span> next to any option for a quick explanation.', 'versus'),
+                    __('<strong>Versus</strong> lets shoppers line products up side by side and pick with confidence. Turn the comparison on, choose where the <em>Compare</em> button appears, and decide which details fill the comparison table. Hover or focus the <span aria-hidden="true">?</span> next to any option for a quick explanation.', 'plogins-versus'),
                     ['strong' => [], 'em' => [], 'span' => ['aria-hidden' => true]],
                 );
                 ?>
@@ -133,13 +133,13 @@ final class Settings implements HasHooks
             <form method="post" action="options.php">
                 <?php settings_fields(self::PAGE); ?>
 
-                <h2><?php esc_html_e('General', 'versus'); ?></h2>
+                <h2><?php esc_html_e('General', 'plogins-versus'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tbody>
                         <tr>
                             <th scope="row">
-                                <?php esc_html_e('Enable comparison', 'versus'); ?>
-                                <?php $this->helpTip(__('The master switch. When off, no compare buttons, account tab, or table are shown anywhere on the storefront, your other settings here are kept for when you turn it back on.', 'versus')); ?>
+                                <?php esc_html_e('Enable comparison', 'plogins-versus'); ?>
+                                <?php $this->helpTip(__('The master switch. When off, no compare buttons, account tab, or table are shown anywhere on the storefront, your other settings here are kept for when you turn it back on.', 'plogins-versus')); ?>
                             </th>
                             <td>
                                 <label for="versus_enabled">
@@ -150,14 +150,14 @@ final class Settings implements HasHooks
                                         value="1"
                                         <?php checked((bool) ($settings['enabled'] ?? false), true); ?>
                                     />
-                                    <?php esc_html_e('Show the compare button and enable the comparison table.', 'versus'); ?>
+                                    <?php esc_html_e('Show the compare button and enable the comparison table.', 'plogins-versus'); ?>
                                 </label>
                             </td>
                         </tr>
                         <tr>
                             <th scope="row">
-                                <label for="versus_max_items"><?php esc_html_e('Maximum products', 'versus'); ?></label>
-                                <?php $this->helpTip(__('The cap on how many products fit in one comparison. When a shopper adds one more than this, the oldest item drops off automatically so the table never gets unreadably wide. Two to six works best on most themes.', 'versus')); ?>
+                                <label for="versus_max_items"><?php esc_html_e('Maximum products', 'plogins-versus'); ?></label>
+                                <?php $this->helpTip(__('The cap on how many products fit in one comparison. When a shopper adds one more than this, the oldest item drops off automatically so the table never gets unreadably wide. Two to six works best on most themes.', 'plogins-versus')); ?>
                             </th>
                             <td>
                                 <input
@@ -169,58 +169,58 @@ final class Settings implements HasHooks
                                     max="6"
                                     class="small-text"
                                 />
-                                <p class="description"><?php esc_html_e('How many products a shopper can compare at once (2–6).', 'versus'); ?></p>
+                                <p class="description"><?php esc_html_e('How many products a shopper can compare at once (2–6).', 'plogins-versus'); ?></p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h2><?php esc_html_e('Placement & access', 'versus'); ?></h2>
+                <h2><?php esc_html_e('Placement & access', 'plogins-versus'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tbody>
                         <?php
-                        $this->checkboxRow('show_on_loop', __('Shop & archive loops', 'versus'), __('Show the compare button under each product in loops.', 'versus'), $settings, __('Adds a Compare button beneath every product on the shop, category, tag, and search results pages, so shoppers can build a comparison while they browse.', 'versus'));
-                        $this->checkboxRow('show_on_single', __('Single product page', 'versus'), __('Show the compare button on the single product page.', 'versus'), $settings, __('Adds a Compare button to each individual product page, near the add-to-cart area.', 'versus'));
-                        $this->checkboxRow('allow_guests', __('Allow guests', 'versus'), __('Let logged-out visitors build a comparison (stored per browser).', 'versus'), $settings, __('When on, visitors who are not signed in can still compare; their selection is remembered in their own browser for six months. When off, clicking Compare sends them to log in first.', 'versus'));
-                        $this->checkboxRow('show_in_account', __('Account menu', 'versus'), __('Add a "Compare" tab to the My Account menu for logged-in customers.', 'versus'), $settings, __('Adds a Compare tab inside My Account so signed-in customers can return to their saved comparison at any time. If you change this, save and then re-save Permalinks under Settings → Permalinks once.', 'versus'));
+                        $this->checkboxRow('show_on_loop', __('Shop & archive loops', 'plogins-versus'), __('Show the compare button under each product in loops.', 'plogins-versus'), $settings, __('Adds a Compare button beneath every product on the shop, category, tag, and search results pages, so shoppers can build a comparison while they browse.', 'plogins-versus'));
+                        $this->checkboxRow('show_on_single', __('Single product page', 'plogins-versus'), __('Show the compare button on the single product page.', 'plogins-versus'), $settings, __('Adds a Compare button to each individual product page, near the add-to-cart area.', 'plogins-versus'));
+                        $this->checkboxRow('allow_guests', __('Allow guests', 'plogins-versus'), __('Let logged-out visitors build a comparison (stored per browser).', 'plogins-versus'), $settings, __('When on, visitors who are not signed in can still compare; their selection is remembered in their own browser for six months. When off, clicking Compare sends them to log in first.', 'plogins-versus'));
+                        $this->checkboxRow('show_in_account', __('Account menu', 'plogins-versus'), __('Add a "Compare" tab to the My Account menu for logged-in customers.', 'plogins-versus'), $settings, __('Adds a Compare tab inside My Account so signed-in customers can return to their saved comparison at any time. If you change this, save and then re-save Permalinks under Settings → Permalinks once.', 'plogins-versus'));
                         ?>
                     </tbody>
                 </table>
 
-                <h2><?php esc_html_e('Comparison table', 'versus'); ?></h2>
+                <h2><?php esc_html_e('Comparison table', 'plogins-versus'); ?></h2>
                 <p class="description">
-                    <?php esc_html_e('Choose which standard fields appear as rows. Rows that differ between products can be highlighted.', 'versus'); ?>
+                    <?php esc_html_e('Choose which standard fields appear as rows. Rows that differ between products can be highlighted.', 'plogins-versus'); ?>
                 </p>
                 <table class="form-table" role="presentation">
                     <tbody>
                         <?php
-                        $this->fieldCheckboxRow('price', __('Price', 'versus'), $fields, __('Adds a Price row showing each product’s current price (including any sale price).', 'versus'));
-                        $this->fieldCheckboxRow('sku', __('SKU', 'versus'), $fields, __('Adds a SKU row, useful for shops where customers reference part or model numbers.', 'versus'));
-                        $this->fieldCheckboxRow('availability', __('Availability', 'versus'), $fields, __('Adds a stock-status row (In stock, Out of stock, On backorder) so shoppers can rule out unavailable options.', 'versus'));
-                        $this->fieldCheckboxRow('description', __('Short description', 'versus'), $fields, __('Adds a row with each product’s short description for an at-a-glance summary.', 'versus'));
-                        $this->checkboxRow('show_attributes', __('Product attributes', 'versus'), __('Add a row for each product attribute (colour, size, material, …).', 'versus'), $settings, __('Adds one row per product attribute (such as colour, size, or material). Only attributes that at least one of the compared products defines are shown.', 'versus'));
-                        $this->checkboxRow('highlight_differences', __('Highlight differences', 'versus'), __('Visually highlight rows whose values differ between products.', 'versus'), $settings, __('Tints any row where the products’ values are not identical, so the things that set them apart jump out immediately.', 'versus'));
-                        $this->checkboxRow('show_only_differences', __('Default to differences only', 'versus'), __('Tick the "show only differences" toggle by default.', 'versus'), $settings, __('Pre-ticks the “Show only differences” toggle on the comparison page, hiding rows that are the same. Shoppers can still untick it to see everything.', 'versus'));
-                        $this->checkboxRow('show_product_image', __('Product image', 'versus'), __('Show the product image in each column header.', 'versus'), $settings, __('Shows each product’s thumbnail at the top of its column. Space is reserved for the image so the table never jumps as pictures load.', 'versus'));
-                        $this->checkboxRow('show_add_to_cart', __('Add to cart', 'versus'), __('Show an add-to-cart button in each column header.', 'versus'), $settings, __('Adds an Add to cart button under each product so shoppers can buy straight from the comparison once they have decided.', 'versus'));
-                        $this->checkboxRow('show_remove_button', __('Remove button', 'versus'), __('Show a remove button in each column header.', 'versus'), $settings, __('Lets shoppers drop a single product from the comparison without clearing the whole list.', 'versus'));
+                        $this->fieldCheckboxRow('price', __('Price', 'plogins-versus'), $fields, __('Adds a Price row showing each product’s current price (including any sale price).', 'plogins-versus'));
+                        $this->fieldCheckboxRow('sku', __('SKU', 'plogins-versus'), $fields, __('Adds a SKU row, useful for shops where customers reference part or model numbers.', 'plogins-versus'));
+                        $this->fieldCheckboxRow('availability', __('Availability', 'plogins-versus'), $fields, __('Adds a stock-status row (In stock, Out of stock, On backorder) so shoppers can rule out unavailable options.', 'plogins-versus'));
+                        $this->fieldCheckboxRow('description', __('Short description', 'plogins-versus'), $fields, __('Adds a row with each product’s short description for an at-a-glance summary.', 'plogins-versus'));
+                        $this->checkboxRow('show_attributes', __('Product attributes', 'plogins-versus'), __('Add a row for each product attribute (colour, size, material, …).', 'plogins-versus'), $settings, __('Adds one row per product attribute (such as colour, size, or material). Only attributes that at least one of the compared products defines are shown.', 'plogins-versus'));
+                        $this->checkboxRow('highlight_differences', __('Highlight differences', 'plogins-versus'), __('Visually highlight rows whose values differ between products.', 'plogins-versus'), $settings, __('Tints any row where the products’ values are not identical, so the things that set them apart jump out immediately.', 'plogins-versus'));
+                        $this->checkboxRow('show_only_differences', __('Default to differences only', 'plogins-versus'), __('Tick the "show only differences" toggle by default.', 'plogins-versus'), $settings, __('Pre-ticks the “Show only differences” toggle on the comparison page, hiding rows that are the same. Shoppers can still untick it to see everything.', 'plogins-versus'));
+                        $this->checkboxRow('show_product_image', __('Product image', 'plogins-versus'), __('Show the product image in each column header.', 'plogins-versus'), $settings, __('Shows each product’s thumbnail at the top of its column. Space is reserved for the image so the table never jumps as pictures load.', 'plogins-versus'));
+                        $this->checkboxRow('show_add_to_cart', __('Add to cart', 'plogins-versus'), __('Show an add-to-cart button in each column header.', 'plogins-versus'), $settings, __('Adds an Add to cart button under each product so shoppers can buy straight from the comparison once they have decided.', 'plogins-versus'));
+                        $this->checkboxRow('show_remove_button', __('Remove button', 'plogins-versus'), __('Show a remove button in each column header.', 'plogins-versus'), $settings, __('Lets shoppers drop a single product from the comparison without clearing the whole list.', 'plogins-versus'));
                         ?>
                     </tbody>
                 </table>
 
-                <h2><?php esc_html_e('Labels &amp; text', 'versus'); ?></h2>
+                <h2><?php esc_html_e('Labels &amp; text', 'plogins-versus'); ?></h2>
                 <p class="description">
-                    <?php esc_html_e('Customise the front-end strings. Leave a field empty to use the default translation.', 'versus'); ?>
+                    <?php esc_html_e('Customise the front-end strings. Leave a field empty to use the default translation.', 'plogins-versus'); ?>
                 </p>
                 <table class="form-table" role="presentation">
                     <tbody>
                         <?php
-                        $this->textRow('button_add_text', __('"Compare" button', 'versus'), __('Compare', 'versus'), $settings, __('The wording on the button that adds a product to the comparison.', 'versus'));
-                        $this->textRow('button_remove_text', __('"Remove" button', 'versus'), __('Remove', 'versus'), $settings, __('The wording shown once a product has been added, clicking it takes the product back out.', 'versus'));
-                        $this->textRow('compare_link_text', __('Compare link', 'versus'), __('View comparison', 'versus'), $settings, __('The link, shown next to the button, that opens the full comparison table.', 'versus'));
-                        $this->textRow('differences_toggle_text', __('Differences toggle', 'versus'), __('Show only differences', 'versus'), $settings, __('The label for the checkbox on the comparison page that hides identical rows.', 'versus'));
-                        $this->textRow('clear_text', __('Clear-all button', 'versus'), __('Clear all', 'versus'), $settings, __('The button that empties the entire comparison in one click.', 'versus'));
-                        $this->textRow('empty_text', __('Empty comparison message', 'versus'), __('No products added to compare yet.', 'versus'), $settings, __('The friendly message shown on the comparison page before any products have been added.', 'versus'));
+                        $this->textRow('button_add_text', __('"Compare" button', 'plogins-versus'), __('Compare', 'plogins-versus'), $settings, __('The wording on the button that adds a product to the comparison.', 'plogins-versus'));
+                        $this->textRow('button_remove_text', __('"Remove" button', 'plogins-versus'), __('Remove', 'plogins-versus'), $settings, __('The wording shown once a product has been added, clicking it takes the product back out.', 'plogins-versus'));
+                        $this->textRow('compare_link_text', __('Compare link', 'plogins-versus'), __('View comparison', 'plogins-versus'), $settings, __('The link, shown next to the button, that opens the full comparison table.', 'plogins-versus'));
+                        $this->textRow('differences_toggle_text', __('Differences toggle', 'plogins-versus'), __('Show only differences', 'plogins-versus'), $settings, __('The label for the checkbox on the comparison page that hides identical rows.', 'plogins-versus'));
+                        $this->textRow('clear_text', __('Clear-all button', 'plogins-versus'), __('Clear all', 'plogins-versus'), $settings, __('The button that empties the entire comparison in one click.', 'plogins-versus'));
+                        $this->textRow('empty_text', __('Empty comparison message', 'plogins-versus'), __('No products added to compare yet.', 'plogins-versus'), $settings, __('The friendly message shown on the comparison page before any products have been added.', 'plogins-versus'));
                         ?>
                     </tbody>
                 </table>
@@ -245,7 +245,7 @@ final class Settings implements HasHooks
                 type="button"
                 class="versus-help__toggle"
                 aria-describedby="<?php echo esc_attr($tipId); ?>"
-                aria-label="<?php esc_attr_e('More information', 'versus'); ?>"
+                aria-label="<?php esc_attr_e('More information', 'plogins-versus'); ?>"
             >?</button>
             <span class="versus-help__tip" id="<?php echo esc_attr($tipId); ?>" role="tooltip">
                 <?php echo esc_html($text); ?>
@@ -309,7 +309,7 @@ final class Settings implements HasHooks
                     />
                     <?php
                     /* translators: %s: comparison field label. */
-                    echo esc_html(sprintf(__('Show the %s row.', 'versus'), $label));
+                    echo esc_html(sprintf(__('Show the %s row.', 'plogins-versus'), $label));
                     ?>
                 </label>
             </td>

@@ -54,14 +54,14 @@ final class VersusService implements HasHooks
             tableTemplate: 'compare-table',
             comparisonFields: $this->comparisonFields(),
             labels: [
-                'add'            => __('Compare', 'versus'),
-                'remove'         => __('Remove', 'versus'),
-                'account'        => __('Compare', 'versus'),
-                'feature'        => __('Feature', 'versus'),
-                'login_required' => __('Please log in to compare products.', 'versus'),
-                'not_found'      => __('Product not found.', 'versus'),
-                'clear_error'    => __('Could not clear the comparison.', 'versus'),
-                'limit_notice'   => __('You can compare up to {limit} products. The oldest item was removed.', 'versus'),
+                'add'            => __('Compare', 'plogins-versus'),
+                'remove'         => __('Remove', 'plogins-versus'),
+                'account'        => __('Compare', 'plogins-versus'),
+                'feature'        => __('Feature', 'plogins-versus'),
+                'login_required' => __('Please log in to compare products.', 'plogins-versus'),
+                'not_found'      => __('Product not found.', 'plogins-versus'),
+                'clear_error'    => __('Could not clear the comparison.', 'plogins-versus'),
+                'limit_notice'   => __('You can compare up to {limit} products. The oldest item was removed.', 'plogins-versus'),
             ],
             isEnabled: fn (): bool => $this->isEnabled(),
             settings: fn (): array => $this->settings(),
@@ -109,7 +109,7 @@ final class VersusService implements HasHooks
             return;
         }
 
-        $errorText = __('Something went wrong. Please try again.', 'versus');
+        $errorText = __('Something went wrong. Please try again.', 'plogins-versus');
 
         wp_add_inline_script(
             'versus',
@@ -133,10 +133,10 @@ final class VersusService implements HasHooks
     private function comparisonFields(): array
     {
         $labels = [
-            'price'        => __('Price', 'versus'),
-            'sku'          => __('SKU', 'versus'),
-            'availability' => __('Availability', 'versus'),
-            'description'  => __('Description', 'versus'),
+            'price'        => __('Price', 'plogins-versus'),
+            'sku'          => __('SKU', 'plogins-versus'),
+            'availability' => __('Availability', 'plogins-versus'),
+            'description'  => __('Description', 'plogins-versus'),
         ];
 
         $enabled = $this->settings()['fields'] ?? [];

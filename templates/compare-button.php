@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 $compare_link_text = (string) ($settings['compare_link_text'] ?? '');
 if ('' === $compare_link_text) {
-    $compare_link_text = __('View comparison', 'versus');
+    $compare_link_text = __('View comparison', 'plogins-versus');
 }
 
 $count = isset($button['count']) ? (int) $button['count'] : 0;
